@@ -1,0 +1,513 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.redd.it/1yunymew9eq41.jpg");
+  background-size: cover; /* масштабирование фона на весь экран */
+  background-repeat: no-repeat; /* запрет повторения фона */
+  background-attachment: fixed; /* фиксация фона на месте при прокрутке страницы */
+}
+
+header {
+  z-index: 5;
+  width: 100%;
+  background-color: #110b55;
+  color: #f7f7f7;
+  display: flex;
+  /* justify-content: start; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-size: 30px;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  text-shadow: 0px 0px 10px #00ccff, 0px 0px 20px #00ccff, 0px 0px 30px #00ccff,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0;
+  /* margin: 20px; */
+  position: fixed;
+  /* border-bottom: 3px solid #d5b60a; */
+  border-bottom: 3px double #efc509;
+  caret-color: transparent;
+  cursor: default;
+  outline: none;
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для Internet Explorer */
+  user-select: none; /* стандартное свойство */
+}
+
+header h1 {
+  margin: 5px;
+  font-family: "Orbitron", sans-serif;
+  /* width: 90%; */
+  width: 100%;
+  text-align: center;
+  /* padding-left: 10%; */
+  position: fixed;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  /* position: fixed; */
+  position: fixed;
+  bottom: 0;
+  background-color: #110b55;
+  width: 100%;
+  height: 100 px;
+  /* margin: 10px; */
+  padding: 10px;
+  color: #ccc;
+  /* border: 3px solid #d5b60a; */
+  /* border-top: 3px solid #d5b60a; */
+  border-top: 3px double #efc509;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* text-shadow: 0px 0px 10px #00ccff, 0px 0px 20px #00ccff, 0px 0px 30px #00ccff,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0; */
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для Internet Explorer */
+  user-select: none; /* стандартное свойство */
+}
+
+#cat_cards {
+  display: grid;
+  grid-gap: 20px;
+  min-height: 100vh;
+  /* padding: 30px; */
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: space-around;
+  justify-content: center;
+  /* margin: 0 auto; */
+  justify-items: center;
+  padding: 150px 30px 30px;
+}
+
+.cat-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.cat-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cat-card h2 {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.cat-card p {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #666;
+}
+
+.cat-card button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ================= */
+
+.card {
+  position: relative;
+  width: 370px;
+  height: 480px;
+  /* background: rgb(25, 24, 24); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: 100ms;
+  margin-bottom: 100px;
+}
+
+.card_star {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  z-index: 4;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #ed8002;
+  /* color: #4c2d4c; */
+  /* text-shadow: 0px 0px 10px #fafafa, 0px 0px 20px #7a45a4, 0px 0px 30px #762eba,
+    0px 0px 40px #7039be, 0px 0px 70px #7039be, 0px 0px 80px #7039be,
+    0px 0px 100px #7039be; */
+}
+.card input {
+  /* position: absolute; */
+  opacity: 0;
+  cursor: pointer;
+  /* height: 0;
+  width: 0; */
+  caret-color: transparent;
+}
+
+.card_star:hover {
+  color: rgb(245, 245, 226);
+  text-shadow: 0px 0px 10px #fafafa, 0px 0px 20px #fafafa, 0px 0px 30px #fafafa,
+    0px 0px 40px #e6ecf0, 0px 0px 70px #e6eef3, 0px 0px 80px #e1e7ec,
+    0px 0px 100px #e5ebef;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+  border-radius: 10px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+  filter: blur(30px);
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(36, 3, 108);
+}
+
+/* .card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  border-radius: 10px;
+} */
+
+.card img {
+  position: absolute;
+  z-index: 3;
+  width: 96%;
+  height: 97%;
+  opacity: 1;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.card:hover img {
+  margin: 0px;
+  scale: 0.7;
+  opacity: 0;
+  transform: translateY(-70px);
+}
+
+.card .content {
+  position: absolute;
+  z-index: 3;
+  bottom: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  /* max-height: 90%; */
+  /* align-content: center; */
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.card:hover .content {
+  transform: scale(0.95);
+  /* bottom: 5px; */
+  /* bottom: 25px; */
+}
+
+.content .title {
+  /* margin-top: 10px; */
+  color: #fff;
+  position: relative;
+  /* color: #f5da09;
+  font-weight: 500;
+  line-height: 1.2em;
+  font-size: 1.1em; */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  /* padding: 5px; */
+  /* max-width: 90%; */
+  word-wrap: break-word;
+  /* text-shadow: 0px 0px 10px #503080, 0px 0px 20px #503080, 0px 0px 30px #503080,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0; */
+}
+
+.content .title span {
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 0.9em;
+  /* max-width: 90%; */
+  color: #fff;
+  /* margin-top: 10px; */
+}
+
+.content .sci {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  padding: 0px;
+  color: #fff;
+}
+
+/* .sci button {
+  list-style: none;
+  cursor: pointer;
+} */
+
+.sci button {
+  margin-right: 15px;
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  color: rgba(21, 20, 20, 0.98);
+  background: rgba(248, 247, 250, 0.887);
+  fill: currentColor;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.sci button:hover {
+  fill: currentColor;
+  color: rgb(245, 245, 226);
+  background: rgba(7, 22, 151, 0.887);
+  text-shadow: 0px 0px 10px #2073c6, 0px 0px 20px #2073c6, 0px 0px 30px #2073c6,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0;
+}
+
+/* ----------- */
+.card .catName {
+  font-weight: 600;
+  top: 420px;
+  right: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 1;
+  /* color: #ecebf2; */
+  color: #f7cb05;
+  font-size: 20px;
+  transition: 0.5s;
+  margin: 15px;
+  /* text-shadow: 0px 0px 10px #503080, 0px 0px 20px #503080, 0px 0px 30px #503080,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0; */
+  text-shadow: 0px 0px 10px #271640, 0px 0px 20px #271640, 0px 0px 30px #271640,
+    0px 0px 40px #f1e504, 0px 0px 70px #f1e504, 0px 0px 80px #f1e504,
+    0px 0px 100px #f1e504;
+}
+
+.card:hover .catName {
+  margin: 0px;
+  scale: 0.7;
+  opacity: 0;
+  transform: translateY(-70px);
+}
+
+.card .Rate {
+  font-weight: 600;
+  width: max-content;
+  margin: 15px;
+  top: 5px;
+  /* right: 210px; */
+  position: absolute;
+  z-index: 3;
+  opacity: 1;
+  /* color: #ecebf2; */
+  color: #f7cb05;
+  font-size: large;
+  transition: 0.5s;
+  /* text-shadow: 0px 0px 10px #503080, 0px 0px 20px #503080, 0px 0px 30px #503080,
+    0px 0px 40px #c4d4e0, 0px 0px 70px #c4d4e0, 0px 0px 80px #c4d4e0,
+    0px 0px 100px #c4d4e0; */
+  text-shadow: 0px 0px 10px #503080, 0px 0px 20px #503080, 0px 0px 30px #503080,
+    0px 0px 40px #f1e504, 0px 0px 70px #f1e504, 0px 0px 80px #f1e504,
+    0px 0px 100px #f1e504;
+}
+
+.card:hover .Rate {
+  margin: 0px;
+  scale: 0.7;
+  opacity: 0;
+  transform: translateY(70px);
+}
+
+/* ----------- */
+/* Выпадающее меню */
+
+.menu {
+  /* z-index: 2; */
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  position: relative;
+  color: #f7cb05;
+  caret-color: transparent;
+  text-shadow: 0px 0px 10px #1e1e1c, 0px 0px 20px #1e1e1c, 0px 0px 30px #1e1e1c;
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для Internet Explorer */
+  user-select: none; /* стандартное свойство */
+  margin-left: 10%;
+}
+.menu:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 10px #00ccff, 0px 0px 20px #00ccff, 0px 0px 30px #00ccff,
+    0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0,
+    0px 0px 10px #c4d4e0;
+}
+
+.menu p {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  max-width: max-content;
+  max-height: min-content;
+  border: 3px double #efc509;
+  padding: 5px 15px;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  top: calc(80% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #30206d;
+  box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
+    0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  width: 200px;
+  text-align: left;
+}
+
+.menu:hover .dropDown {
+  display: block;
+}
+
+.dropDown button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #170a68;
+  color: #f7f8fa;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.dropDown button:hover {
+  background-color: #f9f9f9;
+  color: #073075;
+  box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
+    0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
+}
+
+/* ================= */
+
+.TextHeader {
+  /* font-size: 48px; */
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+  position: relative;
+  box-sizing: border-box;
+  transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Плавный переход для свойств height и opacity */
+}
+
+.TextHeader::after {
+  content: "Star Wars Cats";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #e6c717;
+  text-shadow: 0 0 2px #fff, 0 0 1px #fff, 0 0 1px #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: animloader 5s ease-in-out infinite;
+}
+
+.TextHeader:hover {
+  height: auto; /* Возвращение высоты заголовка в автоматический режим */
+  opacity: 1; /* Возвращение прозрачности заголовка в исходное состояние */
+}
+
+@keyframes animloader {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
