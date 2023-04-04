@@ -27,14 +27,39 @@ const addCatBtnHandler = () => {
 //?? Избранное фильтр
 const favoriteBtnHandler = () => {
   console.log(`Избранное`);
+  const favoriteOn = catsPropsData.favoriteOn
+    ? (catsPropsData.favoriteOn = false)
+    : (catsPropsData.favoriteOn = true);
+  createDomElement(catDataArray, catsPropsData.sortType, favoriteOn);
 };
 
 //?? Сортировка
 const sortBtnHandler = () => {
-  console.log(`Сортировка`);
+  if (sortDropdownDiv.style.display === "block") {
+    sortDropdownDiv.style.display = "none";
+  } else {
+    sortDropdownDiv.style.display = "block";
+  }
 };
 
 //?? Поиск по имени
 const findByNameBtnHandler = () => {
   console.log(`Поиск`);
+};
+4;
+
+//------------------
+const sortByNameBtnHandler = () => {
+  catsPropsData.sortType = "name";
+  createDomElement(catDataArray, catsPropsData.sortType);
+};
+
+const sortByAgeBtnHandler = () => {
+  catsPropsData.sortType = "age";
+  createDomElement(catDataArray, catsPropsData.sortType);
+};
+
+const sortByPowerBtnHandler = () => {
+  catsPropsData.sortType = "rate";
+  createDomElement(catDataArray, catsPropsData.sortType);
 };

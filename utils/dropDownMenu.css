@@ -1,0 +1,82 @@
+/* Выпадающее меню */
+
+.menu {
+  /* z-index: 2; */
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  position: relative;
+  color: #f7cb05;
+  caret-color: transparent;
+  text-shadow: 0px 0px 10px #1e1e1c, 0px 0px 20px #1e1e1c, 0px 0px 30px #1e1e1c;
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для Internet Explorer */
+  user-select: none; /* стандартное свойство */
+  margin-left: 10%;
+}
+.menu:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 10px #00ccff, 0px 0px 20px #00ccff, 0px 0px 30px #00ccff,
+    0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0,
+    0px 0px 10px #c4d4e0;
+}
+
+.menu p {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  max-width: max-content;
+  max-height: min-content;
+  border: 3px double #efc509;
+  padding: 5px 15px;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  top: calc(80% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #30206d;
+  box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
+    0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  width: 200px;
+  text-align: left;
+}
+
+.menu:hover .dropDown {
+  display: block;
+}
+
+.dropDown button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #170a68;
+  color: #f7f8fa;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.dropDown button:hover {
+  background-color: #f9f9f9;
+  color: #073075;
+  box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
+    0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
+}
+
+/* ------------------ */
+/* .dropDown sortDropdown {
+  z-index: 5;
+} */
