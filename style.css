@@ -157,6 +157,8 @@ footer {
   border-top: 3px double #efc509;
   color: #ccc;
   font-size: 20px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   /* text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff,
     0 0 40px #c4d4e0, 0 0 70px #c4d4e0, 0 0 80px #c4d4e0, 0 0 100px #c4d4e0; */

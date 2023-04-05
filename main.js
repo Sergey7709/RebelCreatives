@@ -3,6 +3,8 @@ const catsPropsData = {
   catDataArray: [],
   favoriteOn: false,
   sortType: "id",
+  sortUp: true,
+  buttonEnabled: "",
 };
 // const { catDataArray, favoriteOn } = catsPropsData;
 // let catDataArray;
@@ -19,7 +21,8 @@ const addCatData = (catResponse) => {
 const createDomElement = (
   catDataArray,
   sortType = catsPropsData.sortType,
-  favoriteOn = false
+  favoriteOn = false,
+  sortUp = catsPropsData.sortUp
 ) => {
   if (!catDataArray.length) {
     console.log("Данные о котиках отсутствуют");
@@ -27,14 +30,16 @@ const createDomElement = (
     const sortArray = [...catDataArray].sort((a, b) => {
       switch (sortType) {
         case "name":
-          return a.name.localeCompare(b.name);
+          return sortUp
+            ? a.name.localeCompare(b.name)
+            : b.name.localeCompare(a.name);
         case "rate":
-          return b.rate - a.rate;
+          return sortUp ? a.rate - b.rate : b.rate - a.rate;
         case "age":
-          return a.age - b.age;
+          return sortUp ? a.age - b.age : b.age - a.age;
         default:
           console.log(catsPropsData.sortType);
-          return a.id - b.id;
+          return sortUp ? a.id - b.id : b.id - a.id;
       }
     });
     const renderArray =

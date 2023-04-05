@@ -51,15 +51,25 @@ const findByNameBtnHandler = () => {
 //------------------
 const sortByNameBtnHandler = () => {
   catsPropsData.sortType = "name";
-  createDomElement(catDataArray, catsPropsData.sortType);
+  // createDomElement(catDataArray, catsPropsData.sortType);
+  createDomElement(catDataArray);
 };
 
 const sortByAgeBtnHandler = () => {
   catsPropsData.sortType = "age";
-  createDomElement(catDataArray, catsPropsData.sortType);
+  createDomElement(catDataArray);
 };
 
 const sortByPowerBtnHandler = () => {
   catsPropsData.sortType = "rate";
-  createDomElement(catDataArray, catsPropsData.sortType);
+  createDomElement(catDataArray);
+};
+
+const sortByUpBtnHandler = () => {
+  catsPropsData.sortUp = true;
+  createDomElement(catDataArray);
+};
+const sortByDownBtnHandler = () => {
+  catsPropsData.sortUp = false;
+  createDomElement(catDataArray);
 };
