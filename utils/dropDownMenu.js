@@ -44,8 +44,6 @@ findByNameBtn.addEventListener("click", () => {
 });
 dropdownDiv.appendChild(findByNameBtn);
 
-//! выпадающее меню сортировки
-
 const sortBtn = document.createElement("button");
 sortBtn.id = "sortBtn";
 sortBtn.textContent = "Сортировать по параметрам";
@@ -61,10 +59,30 @@ dropdownDiv.appendChild(sortBtn);
 menuDiv.appendChild(dropdownDiv);
 
 // добавляем элемент меню на страницу
-document.querySelector("header").appendChild(menuDiv);
+// document.querySelector("header").appendChild(menuDiv);
+const headerContent = document.querySelector(".header-content");
+headerContent.prepend(menuDiv);
+
+//! выпадающее меню сортировки
+
+const styleButtonActive = (btnActive, btnDefolt1, btnDefolt2, btnDefolt3) => {
+  btnActive.style.backgroundColor = "#500baa";
+  btnActive.style.color = "white";
+  btnActive.style.boxShadow =
+    "0px 8px 16px 0px rgba(246, 243, 243, 0.962), 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620";
+  btnDefolt1.style.backgroundColor = "";
+  btnDefolt2.style.backgroundColor = "";
+  btnDefolt3.style.backgroundColor = "";
+  btnDefolt1.style.boxShadow = "";
+  btnDefolt2.style.boxShadow = "";
+  btnDefolt3.style.boxShadow = "";
+  btnDefolt1.style.color = "";
+  btnDefolt2.style.color = "";
+  btnDefolt3.style.color = "";
+};
 
 const sortDropdownDiv = document.createElement("div");
-sortDropdownDiv.className = "dropDown sortDropdown";
+sortDropdownDiv.className = "dropDown";
 sortDropdownDiv.style.display = "none";
 sortDropdownDiv.addEventListener("mouseover", () => {
   sortDropdownDiv.style.display = "block";
@@ -76,35 +94,57 @@ sortDropdownDiv.addEventListener("mouseout", () => {
 const sortByUpBtn = document.createElement("button");
 sortByUpBtn.id = "sortByUpBtn";
 sortByUpBtn.textContent = "Сортировать по возрастанию";
+
+sortDropdownDiv.appendChild(sortByUpBtn);
 sortByUpBtn.addEventListener("click", () => {
   sortByUpBtnHandler();
-  sortByUpBtn.style.backgroundColor = "blueviolet";
-  sortByUpBtn.style.color = "darkblue";
+  sortByUpBtn.style.backgroundColor = "#500baa";
+  sortByUpBtn.style.boxShadow =
+    "0px 8px 16px 0px rgba(246, 243, 243, 0.962), 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620";
   sortByDownBtn.style.backgroundColor = "";
+  sortByDownBtn.style.boxShadow = "";
   sortByDownBtn.style.color = "";
 });
-sortDropdownDiv.appendChild(sortByUpBtn);
 
 const sortByDownBtn = document.createElement("button");
 sortByDownBtn.id = "sortByDownBtn";
 sortByDownBtn.textContent = "Сортировать по убыванию";
 sortByDownBtn.addEventListener("click", () => {
   sortByDownBtnHandler();
-  sortByDownBtn.style.backgroundColor = "blueviolet";
-  sortByDownBtn.style.color = "darkblue";
+  sortByDownBtn.style.backgroundColor = "#500baa";
+  sortByDownBtn.style.boxShadow =
+    "0px 8px 16px 0px rgba(246, 243, 243, 0.962), 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620, 0px 0px 10px #eed620";
   sortByUpBtn.style.backgroundColor = "";
+  sortByUpBtn.style.boxShadow = "";
   sortByUpBtn.style.color = "";
 });
 sortDropdownDiv.appendChild(sortByDownBtn);
+
+const sortByDefaultBtn = document.createElement("button");
+sortByDefaultBtn.id = "sortByDefaultBtn";
+sortByDefaultBtn.textContent = "Сортировать по умолчанию";
+sortByDefaultBtn.addEventListener("click", () => {
+  sortByDefaulttnHandler();
+  styleButtonActive(
+    sortByDefaultBtn,
+    sortByAgeBtn,
+    sortByNameBtn,
+    sortByPowerBtn
+  );
+});
+sortDropdownDiv.appendChild(sortByDefaultBtn);
 
 const sortByAgeBtn = document.createElement("button");
 sortByAgeBtn.id = "sortByAgeBtn";
 sortByAgeBtn.textContent = "Сортировать по возрасту";
 sortByAgeBtn.addEventListener("click", () => {
   sortByAgeBtnHandler();
-  sortByAgeBtn.style.backgroundColor = "#76c3fd";
-  sortByNameBtn.style.backgroundColor = "";
-  sortByPowerBtn.style.backgroundColor = "";
+  styleButtonActive(
+    sortByAgeBtn,
+    sortByNameBtn,
+    sortByPowerBtn,
+    sortByDefaultBtn
+  );
 });
 sortDropdownDiv.appendChild(sortByAgeBtn);
 
@@ -113,9 +153,12 @@ sortByNameBtn.id = "sortByNameBtn";
 sortByNameBtn.textContent = "Сортировать по имени";
 sortByNameBtn.addEventListener("click", () => {
   sortByNameBtnHandler();
-  sortByNameBtn.style.backgroundColor = "#76c3fd";
-  sortByAgeBtn.style.backgroundColor = "";
-  sortByPowerBtn.style.backgroundColor = "";
+  styleButtonActive(
+    sortByNameBtn,
+    sortByAgeBtn,
+    sortByPowerBtn,
+    sortByDefaultBtn
+  );
 });
 sortDropdownDiv.appendChild(sortByNameBtn);
 
@@ -124,9 +167,12 @@ sortByPowerBtn.id = "sortByPowerBtn";
 sortByPowerBtn.textContent = "Сортировать по силе";
 sortByPowerBtn.addEventListener("click", () => {
   sortByPowerBtnHandler();
-  sortByPowerBtn.style.backgroundColor = "#76c3fd";
-  sortByAgeBtn.style.backgroundColor = "";
-  sortByNameBtn.style.backgroundColor = "";
+  styleButtonActive(
+    sortByPowerBtn,
+    sortByAgeBtn,
+    sortByNameBtn,
+    sortByDefaultBtn
+  );
 });
 sortDropdownDiv.appendChild(sortByPowerBtn);
 

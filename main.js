@@ -12,8 +12,9 @@ const catsPropsData = {
 
 const addCatData = (catResponse) => {
   localStorage.startSessionArray = JSON.stringify(catResponse);
-  const { startSessionArray } = localStorage;
-  catDataArray = JSON.parse(startSessionArray);
+  localStorage.sessionWorkingArray = JSON.stringify(catResponse);
+  const { sessionWorkingArray } = localStorage;
+  catsPropsData.catDataArray = JSON.parse(sessionWorkingArray);
   createDomElement(catResponse);
   console.log("addCatData");
 };
@@ -21,7 +22,7 @@ const addCatData = (catResponse) => {
 const createDomElement = (
   catDataArray,
   sortType = catsPropsData.sortType,
-  favoriteOn = false,
+  favoriteOn = catsPropsData.favoriteOn,
   sortUp = catsPropsData.sortUp
 ) => {
   if (!catDataArray.length) {

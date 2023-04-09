@@ -1,7 +1,21 @@
 /* Выпадающее меню */
 
+/* .menu {
+  
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  position: relative;
+  color: #f7cb05;
+  caret-color: transparent;
+  text-shadow: 0px 0px 10px #1e1e1c, 0px 0px 20px #1e1e1c, 0px 0px 30px #1e1e1c;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
+  margin-left: 10%;
+} */
+
 .menu {
-  /* z-index: 2; */
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.1em;
   position: relative;
@@ -14,11 +28,12 @@
   user-select: none; /* стандартное свойство */
   margin-left: 10%;
 }
+
 .menu:hover {
   color: rgb(255, 255, 255);
   text-shadow: 0px 0px 10px #00ccff, 0px 0px 20px #00ccff, 0px 0px 30px #00ccff,
-    0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0, 0px 0px 10px #c4d4e0,
-    0px 0px 10px #c4d4e0;
+    0px 0px 10px #93ccf8, 0px 0px 10px #93ccf8, 0px 0px 10px #93ccf8,
+    0px 0px 10px #93ccf8;
 }
 
 .menu p {
@@ -29,25 +44,31 @@
   max-height: min-content;
   border: 3px double #efc509;
   padding: 5px 15px;
+  margin: 5px;
 }
 
 .dropDown {
   display: none;
   position: absolute;
-  top: calc(80% + 10px);
+  top: calc(90%);
   left: 50%;
   transform: translateX(-50%);
   background-color: #30206d;
   box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
     0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
   z-index: 1;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 5px;
 
   background-color: rgba(255, 255, 255, 0.5);
 
-  width: 200px;
+  /* width: 200px; */
+  /* width: 100%; */
+  width: 11vw;
+
   text-align: left;
+
+  /* padding: 15%; */
 }
 
 .menu:hover .dropDown {
@@ -58,24 +79,32 @@
   /* position: relative;
   z-index: 1; */
   display: block;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 10vw;
+  /* margin-bottom: 10px; */
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
   padding: 5px 10px;
-  background-color: #170a68;
+  background-color: #1d08a2;
   color: #f7f8fa;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   font-weight: 700;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 100%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: transform 0.3s ease;
 }
 
 .dropDown button:hover {
-  background-color: #f9f9f9;
-  color: #073075;
-  box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #76c3fd,
+  /* background-color: #f9f9f9; */
+  /* background-color: #1d08a2; */
+  /* color: #073075; */
+  /* color: #f7f8fa; */
+  transform: scale(1.07);
+  box-shadow: 0px 8px 16px 0px rgba(246, 243, 243, 0.2), 0px 0px 10px #76c3fd,
     0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd, 0px 0px 10px #76c3fd;
   /* box-shadow: 0px 8px 16px 0px rgba(240, 234, 234, 0.2), 0px 0px 10px #630496,
     0px 0px 10px #630496, 0px 0px 10px #630496, 0px 0px 10px #630496; */
@@ -85,8 +114,57 @@
 /* .dropDown sortDropdown {
   z-index: 5;
 } */
-.sortDropdown {
-  /* position: relative; */
-  color: blueviolet;
-  /* z-index: 5; */
+/* .sortDropdown {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #f7f8fa;
+  background-color: #500baa;
+} */
+/* .dropDown button :active {
+  box-shadow: 0px 8px 16px 0px rgba(231, 6, 6, 0.2), 0px 0px 10px #630496,
+    0px 0px 10px #630496, 0px 0px 10px #630496, 0px 0px 10px #630496;
+} */
+
+/* .inputSearch {
+  background-color: #212121;
+  max-width: 190px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px rgb(249, 255, 85);
+} */
+.inputSearch {
+  background-color: #212121;
+  max-width: 10%;
+  /* height: 40px; */
+  padding: 5px;
+  /* border: 2px solid rgb(249, 255, 85); */
+  border: 3px double #efc509;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10%;
+  color: #f7f8fa;
+  /* font-size: 20px; */
+}
+
+.inputSearch:focus {
+  position: relative;
+  color: rgb(0, 208, 255);
+  background-color: #212121;
+  outline-color: rgb(0, 247, 255);
+  box-shadow: -3px -3px 15px rgb(0, 208, 255);
+  transition: 0.1s;
+  transition-property: box-shadow;
+  border: none;
 }

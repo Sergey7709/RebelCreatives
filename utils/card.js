@@ -24,10 +24,10 @@ const renderCatCard = (catDataArray) => {
 
     const i = document.createElement("i");
     if (favorite) {
-      i.classList.add("fa-sharp", "fa-solid", "fa-star", "fa-xl", "fa-flip");
+      i.classList.add("fa-sharp", "fa-solid", "fa-star", "fa-xs", "fa-flip");
       i.style.color = "#ed8002";
     } else {
-      i.classList.add("fa-regular", "fa-star", "fa-xl");
+      i.classList.add("fa-regular", "fa-star", "fa-xs");
     }
     i.title = "Избранные коты";
 
@@ -35,7 +35,10 @@ const renderCatCard = (catDataArray) => {
     label.appendChild(i);
 
     const img = document.createElement("img");
-    img.src = image;
+    img.src = img.src =
+      image.length > 0 && image.startsWith("https")
+        ? image
+        : "https://as1.ftcdn.net/v2/jpg/00/36/94/26/1000_F_36942622_9SUXpSuE5JlfxLFKB1jHu5Z07eVIWQ2W.jpg";
     img.alt = "IMAGE NOT FOUND";
 
     const catName = document.createElement("p");
@@ -59,7 +62,7 @@ const renderCatCard = (catDataArray) => {
 
     const editButton = document.createElement("button");
     const editIcon = document.createElement("i");
-    editIcon.classList.add("fa-solid", "fa-pencil", "fa-2xl");
+    editIcon.classList.add("fa-solid", "fa-pencil", "fa-lg");
     editIcon.title = "Редактировать данные кота";
     editButton.appendChild(editIcon);
     editButton.onclick = () => {
@@ -68,7 +71,7 @@ const renderCatCard = (catDataArray) => {
 
     const deleteButton = document.createElement("button");
     const deleteIcon = document.createElement("i");
-    deleteIcon.classList.add("fa-solid", "fa-trash-can", "fa-2xl");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can", "fa-lg");
     deleteIcon.title = "Удалить кота";
     deleteButton.appendChild(deleteIcon);
     //? работа с удалением карточки по id
