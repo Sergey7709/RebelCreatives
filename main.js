@@ -10,13 +10,18 @@ const catsPropsData = {
 // let catDataArray;
 // const favorite = { enabled: false };
 
+// const localDataCat = () => {
+//   catsPropsData.catDataArray = JSON.parse(sessionWorkingArray);
+//   createDomElement(catsPropsData.catDataArray);
+// };
+
 const addCatData = (catResponse) => {
   localStorage.startSessionArray = JSON.stringify(catResponse);
   localStorage.sessionWorkingArray = JSON.stringify(catResponse);
   const { sessionWorkingArray } = localStorage;
   catsPropsData.catDataArray = JSON.parse(sessionWorkingArray);
   createDomElement(catResponse);
-  console.log("addCatData");
+  console.log("render createDomElement");
 };
 
 const createDomElement = (
@@ -26,7 +31,8 @@ const createDomElement = (
   sortUp = catsPropsData.sortUp
 ) => {
   if (!catDataArray.length) {
-    console.log("Данные о котиках отсутствуют");
+    openModalWindow("Данные о котиках отсутствуют");
+    // console.log("Данные о котиках отсутствуют");
   } else {
     const sortArray = [...catDataArray].sort((a, b) => {
       switch (sortType) {
@@ -39,7 +45,7 @@ const createDomElement = (
         case "age":
           return sortUp ? a.age - b.age : b.age - a.age;
         default:
-          console.log(catsPropsData.sortType);
+          // console.log(catsPropsData.sortType);
           return sortUp ? a.id - b.id : b.id - a.id;
       }
     });

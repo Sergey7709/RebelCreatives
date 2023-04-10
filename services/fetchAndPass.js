@@ -37,15 +37,23 @@ const getCatsRequest = async () => {
     if (catRequest.ok) {
       catResponse = await catRequest.json(); // добавляем 'await' для получения ответа от сервера
       addCatData(catResponse); // передаем результат напрямую в функцию создания DOM
-      // createDomElement(catResponse); // передаем результат напрямую в функцию создания DOM
-      // console.log(catResponse);
       return catResponse;
     } else {
       throw new Error("Ошибка запроса"); // генерируем ошибку, если запрос не удался
     }
   } catch (error) {
-    console.error(`Ошибка: ${error}`); // выводим сообщение об ошибке в консоль
-    throw error; // пробрасываем ошибку дальше
+    console.error(`Ошибка: ${error}`);
+    openModalWindow(
+      "Сервер оффлайн, данные восстановлены из локального хранилища"
+    ); // выводим сообщение об ошибке в консоль
+    const catsDataFromStorage = localStorage.getItem("sessionWorkingArray");
+    if (catsDataFromStorage) {
+      const catsData = JSON.parse(catsDataFromStorage);
+      addCatData(catsData); // передаем данные из local storage в функцию создания DOM
+      return catsData;
+    } else {
+      throw error; // пробрасываем ошибку дальше, если данные в local storage отсутствуют
+    }
   }
 };
 

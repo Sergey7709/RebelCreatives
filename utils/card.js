@@ -38,7 +38,8 @@ const renderCatCard = (catDataArray) => {
     img.src = img.src =
       image.length > 0 && image.startsWith("https")
         ? image
-        : "https://as1.ftcdn.net/v2/jpg/00/36/94/26/1000_F_36942622_9SUXpSuE5JlfxLFKB1jHu5Z07eVIWQ2W.jpg";
+        : // : "https://as1.ftcdn.net/v2/jpg/00/36/94/26/1000_F_36942622_9SUXpSuE5JlfxLFKB1jHu5Z07eVIWQ2W.jpg";
+          "https://as2.ftcdn.net/v2/jpg/04/61/59/41/1000_F_461594111_SlglNPNs8Hkdd0dMUpUzbKpvHJS5VIp8.jpg";
     img.alt = "IMAGE NOT FOUND";
 
     const catName = document.createElement("p");

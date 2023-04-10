@@ -160,7 +160,7 @@
 
 .inputSearch:focus {
   position: relative;
-  color: rgb(0, 208, 255);
+  color: rgba(188, 238, 255, 0.971);
   background-color: #212121;
   outline-color: rgb(0, 247, 255);
   box-shadow: -3px -3px 15px rgb(0, 208, 255);
