@@ -24,7 +24,10 @@ const deleteBtnHandler = (id) => {
 //? работа с редактированием карточки
 const editBtnHandler = (id) => {
   console.log(`форма редактирования карточки: ${id}`);
-  formCardCat(id, catsPropsData.catDataArray);
+  // formCardCat(id, catsPropsData.catDataArray);
+  const { sessionWorkingArray } = localStorage;
+  const localCatData = JSON.parse(sessionWorkingArray);
+  formCardCat(id, localCatData);
 };
 
 //?? добавление новой карточки кота
@@ -182,7 +185,10 @@ const formHandler = (
     image: imgValue,
     favorite: false,
   };
-  console.log(catData);
+
+  const catsObjFromSave = catData;
+  localStorage.setItem("objectCat", JSON.stringify(catsObjFromSave));
+
   id ? putCatRequest(catData) : postCatRequest(catData);
 
   // Очищаем поля формы
