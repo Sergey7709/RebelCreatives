@@ -1,10 +1,16 @@
 //? работа с эвентом input checked Favotite
-const onchangeFavorite = (event) => {
-  if (event.target.checked === true) {
+const onchangeFavorite = (event, cat) => {
+  const newFavoriteValue = !cat.favorite;
+  if (newFavoriteValue) {
     console.log(event.target.checked);
-    // favorite = !favorite;
+    const favoriteCat = { ...cat, favorite: true };
+    putCatRequest(favoriteCat);
+    console.log(favoriteCat);
   } else {
     console.log(event.target.checked);
+    const notFavoriteCat = { ...cat, favorite: false };
+    putCatRequest(notFavoriteCat);
+    console.log(notFavoriteCat);
   }
 };
 
@@ -12,13 +18,12 @@ const onchangeFavorite = (event) => {
 
 const deleteBtnHandler = (id) => {
   console.log(`удаление карточки с ID:${id}`);
-  deleteCatRequest(id);
+  openModalWindow("Вы уверены, что хотите удалить информацию о коте?", id);
 };
 
 //? работа с редактированием карточки
 const editBtnHandler = (id) => {
   console.log(`форма редактирования карточки: ${id}`);
-  // console.log(id, catsPropsData.catDataArray);
   formCardCat(id, catsPropsData.catDataArray);
 };
 
@@ -87,6 +92,23 @@ const findByNameBtnHandler = () => {
   }
 };
 
+//-----------------
+
+const saveByNameBtnHandler = () => {
+  const catsDataFromSave = catsPropsData.catDataArray;
+  localStorage.setItem("saveCatsData", JSON.stringify(catsDataFromSave));
+  openModalWindow("Данные сохранены на этом устройстве");
+  console.log("save");
+  console.log(catsDataFromSave);
+};
+
+const restoreByNameBtnHandler = () => {
+  const saveCatsData = localStorage.getItem("saveCatsData");
+  const restoreCatsData = JSON.parse(saveCatsData);
+  createDomElement(restoreCatsData);
+  openModalWindow("Сохраненные данные востановлены на этом устройстве");
+};
+
 //------------------
 const sortByNameBtnHandler = () => {
   catsPropsData.sortType = "name";
@@ -125,7 +147,8 @@ const formHandler = (
   nameInput,
   ratingInput,
   descriptionInput,
-  imgInput
+  imgInput,
+  id
 ) => {
   event.preventDefault(); // Отменяем стандартное поведение браузера
 
@@ -160,7 +183,7 @@ const formHandler = (
     favorite: false,
   };
   console.log(catData);
-  postCatRequest(catData);
+  id ? putCatRequest(catData) : postCatRequest(catData);
 
   // Очищаем поля формы
   idInput.value = "";
@@ -176,5 +199,4 @@ const formHandler = (
   const form = document.querySelector(".form");
   form.remove();
   wrapperForm.remove();
-  // blurMain.style.filter = "";
 };

@@ -44,6 +44,22 @@ findByNameBtn.addEventListener("click", () => {
 });
 dropdownDiv.appendChild(findByNameBtn);
 
+const saveByNameBtn = document.createElement("button");
+saveByNameBtn.id = "saveByNameBtn";
+saveByNameBtn.textContent = "Сохранить данные о котах на этом устройстве";
+saveByNameBtn.addEventListener("click", () => {
+  saveByNameBtnHandler();
+});
+dropdownDiv.appendChild(saveByNameBtn);
+
+const restoreByNameBtn = document.createElement("button");
+restoreByNameBtn.id = "restoreByNameBtn";
+restoreByNameBtn.textContent = "Отобразить сохраненные данные о котах";
+restoreByNameBtn.addEventListener("click", () => {
+  restoreByNameBtnHandler();
+});
+dropdownDiv.appendChild(restoreByNameBtn);
+
 const sortBtn = document.createElement("button");
 sortBtn.id = "sortBtn";
 sortBtn.textContent = "Сортировать по параметрам";
@@ -51,15 +67,12 @@ sortBtn.addEventListener("click", () => {
   dropdownDiv.style.display = "none";
   sortBtnHandler();
 });
-// sortBtn.addEventListener("mouseover", () => {
-//   sortBtnHandler();
-// });
+
 dropdownDiv.appendChild(sortBtn);
 
 menuDiv.appendChild(dropdownDiv);
 
 // добавляем элемент меню на страницу
-// document.querySelector("header").appendChild(menuDiv);
 const headerContent = document.querySelector(".header-content");
 headerContent.prepend(menuDiv);
 

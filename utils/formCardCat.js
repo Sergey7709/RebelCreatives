@@ -318,7 +318,8 @@ const formCardCat = (id = false, catDataArray = catsPropsData.catDataArray) => {
       nameInput,
       ratingInput,
       descriptionInput,
-      imgInput
+      imgInput,
+      id
     );
   });
 
@@ -331,7 +332,8 @@ const formCardCat = (id = false, catDataArray = catsPropsData.catDataArray) => {
         nameInput,
         ratingInput,
         descriptionInput,
-        imgInput
+        imgInput,
+        id
       );
     }
   });
