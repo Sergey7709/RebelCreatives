@@ -13,7 +13,6 @@
 }
 
 #modal {
-  background-color: white;
   padding: 0.5%;
   border-radius: 5px;
   position: relative;
@@ -46,7 +45,7 @@
   border-radius: 10px;
   color: #fff;
   font-size: 0.8rem;
-  transform: 0.3s ease;
+  transition: transform 0.3s ease;
   background: linear-gradient(0deg, rgb(40, 9, 117) 0%, rgb(78, 4, 118) 100%);
   border: 3px double #efc509;
 }
